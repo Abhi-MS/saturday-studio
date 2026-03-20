@@ -1,26 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+Pro:wght@300;400;600&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #090a0b;
+  --foreground: #f5f5f5;
+  --accent-amber: #ffc107;
+  --accent-cyan: #00d9ff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* 1. Base Reset & Speed Optimization */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    /* min-height ensures the page can grow */
+    min-height: 100%;
+    /* overflow-y: scroll keeps the scrollbar area reserved to prevent "jumps" */
+    overflow-y: scroll; 
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Changing height: 100% to min-height: 100% fixes the scroll lock */
+    min-height: 100vh; 
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Source Sans Pro', system-ui, sans-serif;
+    text-rendering: optimizeSpeed; 
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* This is fine once the height is unlocked */
+  }
+
+  body {
+    background: radial-gradient(circle at 20% 0%, #1a0a1e 0%, #0d0d12 40%, #050505 100%);
+    background-attachment: fixed;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 2. Magazine Layout Structure */
+.magazine-viewport {
+  min-height: 100vh;
+  position: relative;
+  /* Removed expensive 3D perspective from global viewport unless needed for specific flips */
+}
+
+.magazine-page {
+  /* Using high-alpha dark colors instead of blur(2px) for 60fps performance */
+  background: linear-gradient(180deg, rgba(15, 16, 20, 0.98) 0%, rgba(8, 9, 12, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  /* Force GPU layer */
+  transform: translateZ(0); 
+  will-change: transform;
+}
+
+/* 3. Typography */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 4. Optimized Card Interactions */
+.magazine-card {
+  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1), border-color 0.4s ease;
+  will-change: transform;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.magazine-card:hover {
+  /* Scale is cheaper than rotateZ for the browser to render */
+  transform: translateY(-4px) scale(1.005);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 5. Image Container System */
+.magazine-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #050506;
+  /* Clip ensures the zoom doesn't bleed */
+  clip-path: inset(0 round 4px);
+}
+
+.magazine-image-container img {
+  /* Transitioning only transform for smoothness */
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  will-change: transform;
+  object-fit: cover;
+}
+
+.magazine-image-container:hover img {
+  transform: scale(1.04);
+}
+
+/* 6. Special Visual States */
+.leather-style .magazine-image-container img {
+  filter: contrast(1.05) brightness(0.9);
+  transition: filter 0.6s ease, transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.leather-style .magazine-image-container:hover img {
+  filter: contrast(1.1) brightness(1);
+}
+
+/* 7. Responsive Adjustments */
+@media (max-width: 768px) {
+  .magazine-page {
+    border-radius: 0; /* Full width looks more "editorial" on mobile */
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+/* 8. Subtle Performance-Friendly Ambient Motion */
+/* Using Opacity instead of Background-Position to save CPU */
+.magazine-viewport::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(0, 217, 255, 0.03), transparent 50%);
+  pointer-events: none;
+  animation: ambientGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
 }

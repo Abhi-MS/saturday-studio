@@ -1,65 +1,120 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="magazine-viewport min-h-screen bg-transparent text-[#f0f0f0] selection:bg-amber-900/40 overflow-hidden">
+      {/* Ambient background accent */}
+      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="magazine-page container mx-auto flex min-h-screen flex-col justify-center px-8 py-12 md:px-20 relative">
+        <header className="relative z-10 mb-12">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-[1px] w-12 bg-amber-500/50"></div>
+            <span className="text-[10px] uppercase tracking-[.6em] text-amber-500/80 font-medium">
+              Volume 2026 • Visual Strategy
+            </span>
+          </div>
+
+          <h1
+            className="text-7xl md:text-9xl font-serif tracking-tighter text-white leading-[0.85]"
+            style={{ fontFamily: "Playfair Display, Georgia, serif" }}
+          >
+            Saturday <br />
+            <span className="text-amber-200/90 ml-4 md:ml-12 italic tracking-tighter">
+              Studio.
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <h2 className="mt-12 text-lg md:text-xl font-light leading-relaxed text-zinc-400 max-w-xl">
+            A specialized lens on{" "}
+            <span className="text-white">
+              product architecture and tonal depth.
+            </span>{" "}
+            Translating physical goods into cinematic assets through precise
+            lighting and editorial pacing.
+          </h2>
+        </header>
+
+        <div className="grid gap-6 md:grid-cols-2 relative z-10 mb-24">
+          {/* Card 01 - Thematic Environments */}
+          <Link
+            href="/thematic"
+            prefetch={false}
+            className="group relative overflow-hidden bg-zinc-900/40 border border-white/5 p-8 rounded-sm hover:border-amber-500/30 transition-all duration-700"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-100 group-hover:text-amber-500/40 transition-all text-4xl font-serif italic">
+              01
+            </div>
+            <span className="text-[9px] uppercase tracking-[.4em] text-zinc-500 group-hover:text-amber-400 transition-colors">
+              Editorial Narrative
+            </span>
+            <h3 className="mt-4 text-4xl font-serif text-white tracking-tight">
+              Thematic <br />
+              Environments
+            </h3>
+            <p className="mt-6 text-sm text-zinc-500 leading-relaxed font-light max-w-xs group-hover:text-zinc-300 transition-colors">
+              Visual storytelling through curated staging. Creating cohesive
+              thematic worlds that utilize texture and landscape to define brand
+              character.
+            </p>
+            <div className="mt-10 h-[1px] w-0 bg-amber-500/40 group-hover:w-full transition-all duration-700"></div>
+          </Link>
+
+          {/* Card 02 - Nocturnal Aesthetics */}
+          <Link
+            href="/noir"
+            prefetch={false}
+            className="group relative overflow-hidden bg-zinc-900/40 border border-white/5 p-8 rounded-sm hover:border-cyan-500/30 transition-all duration-700"
           >
-            Documentation
-          </a>
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-100 group-hover:text-cyan-500/40 transition-all text-4xl font-serif italic">
+              02
+            </div>
+            <span className="text-[9px] uppercase tracking-[.4em] text-zinc-500 group-hover:text-cyan-400 transition-colors">
+              Controlled Low-Key
+            </span>
+            <h3 className="mt-4 text-4xl font-serif text-white tracking-tight">
+              Nocturnal <br />
+              Aesthetics
+            </h3>
+            <p className="mt-6 text-sm text-zinc-500 leading-relaxed font-light max-w-xs group-hover:text-zinc-300 transition-colors">
+              Where shadow defines the form. High-contrast staging utilizing
+              cinematic silhouettes and luxe specular highlights to isolate
+              product architecture.
+            </p>
+            <div className="mt-10 h-[1px] w-0 bg-cyan-500/40 group-hover:w-full transition-all duration-700"></div>
+          </Link>
         </div>
-      </main>
-    </div>
+
+        {/* Enhanced Footer Section */}
+        <footer className="relative z-10 pt-12 border-t border-white/5 pb-12">
+          <div className="grid md:grid-cols-2 gap-12 items-end">
+            <div>
+              <p className="text-xs text-zinc-500 leading-relaxed uppercase tracking-[.2em] max-w-md">
+                Saturday Studio operates at the intersection of{" "}
+                <span className="text-zinc-300 underline underline-offset-8 decoration-amber-500/40">
+                  visual journalism and commercial art.
+                </span>{" "}
+                Dedicated to delivering intentional, high-fidelity imagery.
+              </p>
+              <p className="mt-8 text-[10px] text-zinc-500 uppercase tracking-[.5em] font-semibold">
+                Kitchener Waterloo • Canada
+              </p>
+            </div>
+
+            <div className="md:text-right flex flex-col md:items-end gap-4">
+              <span className="text-[9px] uppercase tracking-[.4em] text-zinc-600">
+                Available for commissions
+              </span>
+              <a
+                href="mailto:saturdaystudio.visuals@gmail.com"
+                className="relative z-50 pointer-events-auto text-sm font-serif italic text-amber-200/70 hover:text-amber-200 transition-colors border-b border-amber-200/20 pb-1"
+              >
+                Inquire via Email
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
   );
 }
