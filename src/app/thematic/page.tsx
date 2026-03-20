@@ -47,15 +47,15 @@ export default function ThematicPage() {
               </p>
             </div>
             <div className="col-span-12 md:col-span-7">
-              <div className="magazine-image-container h-[500px]">
+              <div className="magazine-image-container h-auto max-h-[65vh] sm:max-h-[380px] md:h-[500px]">
                 <Image
-                  src="https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag-1.jpg"
+                  src="https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag-2.jpg"
                   alt="Kinetic Staging Study"
                   fill
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function ThematicPage() {
           {/* 02: Duffle on Stone */}
           <div className="grid grid-cols-12 gap-8 items-center">
             <div className="col-span-12 md:col-span-7 order-2 md:order-1">
-              <div className="magazine-image-container h-[450px]">
+              <div className="magazine-image-container h-auto max-h-[450px] sm:max-h-[320px] md:h-[450px]">
                 <Image
                   src="https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag-1.jpg"
                   alt="Material Narrative"
@@ -72,7 +72,7 @@ export default function ThematicPage() {
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function ThematicPage() {
               </p>
             </div>
             <div className="col-span-12 md:col-span-7">
-              <div className="magazine-image-container h-[550px]">
+              <div className="magazine-image-container h-auto max-h-[65vh] sm:max-h-[340px] md:h-[550px]">
                 <Image
                   src="https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag-5.jpg"
                   alt="Ambient Integration"
@@ -115,7 +115,7 @@ export default function ThematicPage() {
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function ThematicPage() {
           {/* 04: Shoulder Bag */}
           <div className="grid grid-cols-12 gap-8 items-center">
             <div className="col-span-12 md:col-span-7 order-2 md:order-1">
-              <div className="magazine-image-container h-[600px]">
+              <div className="magazine-image-container h-auto max-h-[600px] sm:max-h-[360px] md:h-[600px]">
                 <Image
                   src="https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag-3.jpg"
                   alt="Chromatic Harmony"
@@ -132,7 +132,7 @@ export default function ThematicPage() {
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -154,7 +154,7 @@ export default function ThematicPage() {
           {/* 05 & 06: Details */}
           <div className="grid grid-cols-12 gap-8 items-start">
             <div className="col-span-12 md:col-span-4">
-              <div className="magazine-image-container h-[300px] mb-6">
+              <div className="magazine-image-container h-auto min-h-[220px] sm:min-h-[260px] mb-6">
                 <Image
                   src="https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag-6.jpg"
                   alt="Tactile Detail"
@@ -162,7 +162,7 @@ export default function ThematicPage() {
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <h3 className="text-lg font-serif text-amber-200 uppercase tracking-widest">
@@ -173,7 +173,7 @@ export default function ThematicPage() {
               </p>
             </div>
             <div className="col-span-12 md:col-span-8">
-              <div className="magazine-image-container h-[500px]">
+              <div className="magazine-image-container h-auto max-h-[65vh] sm:max-h-[360px] md:h-[600px]">
                 <Image
                   src="https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag-4.jpg"
                   alt="Thematic Form"
@@ -181,7 +181,7 @@ export default function ThematicPage() {
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 768px) 100vw, 66vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <p className="text-zinc-400 mt-6 text-sm italic max-w-sm">

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <style>
+      .cls-1 { fill: #1c1c1c; } /* Dark charcoal back for impact */
+      .cls-2 { fill: #f5f5f5; font-family: 'Playfair Display', Georgia, serif; font-size: 130px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+    </style>
+  </defs>
+  
+  <rect class="cls-1" width="160" height="160" rx="20" ry="20"/>
+  
+  <text class="cls-2" x="80" y="85">S</text>
+  
+</svg>

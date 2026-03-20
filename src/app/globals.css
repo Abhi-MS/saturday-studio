@@ -98,7 +98,7 @@ a {
   /* Transitioning only transform for smoothness */
   transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
   will-change: transform;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .magazine-image-container:hover img {
@@ -115,13 +115,28 @@ a {
   filter: contrast(1.1) brightness(1);
 }
 
-/* 7. Responsive Adjustments */
 @media (max-width: 768px) {
   .magazine-page {
-    border-radius: 0; /* Full width looks more "editorial" on mobile */
+    border-radius: 0;
     border: none;
     background: transparent;
     box-shadow: none;
+    padding: 1.5rem 0.8rem 2.2rem;
+    max-width: 100%;
+    margin: 0;
+    overflow: visible;
+  }
+
+  /* Keep the container logic but make sure it doesn't squash images */
+  .magazine-image-container {
+    min-height: 260px;
+    max-height: 65vh;
+  }
+
+  /* If you want the images to show fully, change this to contain */
+  .magazine-image-container img {
+    object-fit: contain; 
+    object-position: center;
   }
 }
 
