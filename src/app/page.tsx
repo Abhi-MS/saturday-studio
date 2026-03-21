@@ -40,48 +40,62 @@ export default function Home() {
           <Link
             href="/thematic"
             prefetch={false}
-            className="group relative overflow-hidden bg-zinc-900/40 border border-white/5 p-8 rounded-sm hover:border-amber-500/30 transition-all duration-700"
+            className="group relative overflow-hidden border border-white/5 p-8 rounded-sm hover:border-amber-500/30 hover:scale-105 transition-all duration-700 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url(/maple.jpg)" }}
           >
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-100 group-hover:text-amber-500/40 transition-all text-4xl font-serif italic">
-              01
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+            <div className="relative z-10">
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-100 group-hover:text-amber-500/40 transition-all text-4xl font-serif italic">
+                01
+              </div>
+              <span className="text-[9px] uppercase tracking-[.4em] text-zinc-300 group-hover:text-amber-400 transition-colors">
+                Editorial Narrative
+              </span>
+              <h3 className="mt-4 text-4xl font-serif text-white tracking-tight">
+                Thematic <br />
+                Environments
+              </h3>
+              <p className="mt-6 text-sm text-zinc-300 leading-relaxed font-light max-w-xs group-hover:text-zinc-100 transition-colors">
+                Visual storytelling through curated staging. Creating cohesive
+                thematic worlds that utilize texture and landscape to define
+                brand character.
+              </p>
+              <div className="mt-10 h-[1px] w-0 bg-amber-500/40 group-hover:w-full transition-all duration-700"></div>
+              <div className="absolute bottom-4 right-4 text-zinc-300 group-hover:text-amber-400 transition-colors text-lg">
+                →
+              </div>
             </div>
-            <span className="text-[9px] uppercase tracking-[.4em] text-zinc-500 group-hover:text-amber-400 transition-colors">
-              Editorial Narrative
-            </span>
-            <h3 className="mt-4 text-4xl font-serif text-white tracking-tight">
-              Thematic <br />
-              Environments
-            </h3>
-            <p className="mt-6 text-sm text-zinc-500 leading-relaxed font-light max-w-xs group-hover:text-zinc-300 transition-colors">
-              Visual storytelling through curated staging. Creating cohesive
-              thematic worlds that utilize texture and landscape to define brand
-              character.
-            </p>
-            <div className="mt-10 h-[1px] w-0 bg-amber-500/40 group-hover:w-full transition-all duration-700"></div>
           </Link>
 
           {/* Card 02 - Nocturnal Aesthetics */}
           <Link
             href="/noir"
             prefetch={false}
-            className="group relative overflow-hidden bg-zinc-900/40 border border-white/5 p-8 rounded-sm hover:border-cyan-500/30 transition-all duration-700"
+            className="group relative overflow-hidden border border-white/5 p-8 rounded-sm hover:border-cyan-500/30 hover:scale-105 transition-all duration-700 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url(/coffee.jpg)" }}
           >
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-100 group-hover:text-cyan-500/40 transition-all text-4xl font-serif italic">
-              02
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+            <div className="relative z-10">
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-100 group-hover:text-cyan-500/40 transition-all text-4xl font-serif italic">
+                02
+              </div>
+              <span className="text-[9px] uppercase tracking-[.4em] text-zinc-300 group-hover:text-cyan-400 transition-colors">
+                Controlled Low-Key
+              </span>
+              <h3 className="mt-4 text-4xl font-serif text-white tracking-tight">
+                Nocturnal <br />
+                Aesthetics
+              </h3>
+              <p className="mt-6 text-sm text-zinc-300 leading-relaxed font-light max-w-xs group-hover:text-zinc-100 transition-colors">
+                Where shadow defines the form. High-contrast staging utilizing
+                cinematic silhouettes and luxe specular highlights to isolate
+                product architecture.
+              </p>
+              <div className="mt-10 h-[1px] w-0 bg-cyan-500/40 group-hover:w-full transition-all duration-700"></div>
+              <div className="absolute bottom-4 right-4 text-zinc-300 group-hover:text-cyan-400 transition-colors text-lg">
+                →
+              </div>
             </div>
-            <span className="text-[9px] uppercase tracking-[.4em] text-zinc-500 group-hover:text-cyan-400 transition-colors">
-              Controlled Low-Key
-            </span>
-            <h3 className="mt-4 text-4xl font-serif text-white tracking-tight">
-              Nocturnal <br />
-              Aesthetics
-            </h3>
-            <p className="mt-6 text-sm text-zinc-500 leading-relaxed font-light max-w-xs group-hover:text-zinc-300 transition-colors">
-              Where shadow defines the form. High-contrast staging utilizing
-              cinematic silhouettes and luxe specular highlights to isolate
-              product architecture.
-            </p>
-            <div className="mt-10 h-[1px] w-0 bg-cyan-500/40 group-hover:w-full transition-all duration-700"></div>
           </Link>
         </div>
 
