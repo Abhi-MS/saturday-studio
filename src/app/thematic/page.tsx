@@ -194,7 +194,7 @@ export default function ThematicPage() {
 
         <footer className="mt-40 border-t border-zinc-800 pt-12 pb-24">
           <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-            <div className="flex gap-12 text-[10px] uppercase tracking-[.4em]">
+            <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-12 text-[10px] uppercase tracking-[.4em]">
               <Link
                 href="/"
                 className="text-zinc-500 hover:text-white transition-colors"
@@ -202,10 +202,34 @@ export default function ThematicPage() {
                 Main Cover
               </Link>
               <Link
-                href="/noir"
+                href="/thematic"
                 className="text-zinc-500 hover:text-amber-500 transition-colors"
               >
+                Thematic Environments
+              </Link>
+              <Link
+                href="/noir"
+                className="text-zinc-500 hover:text-cyan-400 transition-colors"
+              >
                 Nocturnal Aesthetics
+              </Link>
+              <Link
+                href="/white"
+                className="text-zinc-500 hover:text-zinc-200 transition-colors"
+              >
+                White Form
+              </Link>
+              <Link
+                href="/food"
+                className="text-zinc-500 hover:text-amber-400 transition-colors"
+              >
+                Table Studies
+              </Link>
+              <Link
+                href="/inquire"
+                className="text-zinc-500 hover:text-white transition-colors"
+              >
+                Inquire
               </Link>
             </div>
 
