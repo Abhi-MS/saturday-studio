@@ -7,16 +7,14 @@ const initialForm = {
   name: "",
   email: "",
   typeOfShoot: "",
-  preferredDate: "",
   location: "",
-  duration: "",
-  budgetRange: "",
   projectDescription: "",
 };
 
 export default function InquirePage() {
   const [formData, setFormData] = useState(initialForm);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     event: React.ChangeEvent<
@@ -27,9 +25,24 @@ export default function InquirePage() {
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setErrorMessage("");
+
+    const response = await fetch("/api/inquire", {
+      method: "POST",
+      body: new FormData(event.currentTarget),
+    });
+
+    if (!response.ok) {
+      setErrorMessage(
+        "Your message was not sent yet. Please email saturdaystudio.visuals@gmail.com directly instead.",
+      );
+      return;
+    }
+
     setIsSubmitted(true);
+    setFormData(initialForm);
   };
 
   return (
@@ -112,21 +125,6 @@ export default function InquirePage() {
 
               <label className="block text-sm text-zinc-300">
                 <span className="mb-2 block text-[10px] uppercase tracking-[.3em] text-zinc-500">
-                  Preferred date
-                </span>
-                <input
-                  type="date"
-                  name="preferredDate"
-                  value={formData.preferredDate}
-                  onChange={handleChange}
-                  className="w-full border border-white/10 bg-[#0d0d10] px-4 py-3 text-white outline-none transition focus:border-amber-500/60"
-                />
-              </label>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-3">
-              <label className="block text-sm text-zinc-300 md:col-span-1">
-                <span className="mb-2 block text-[10px] uppercase tracking-[.3em] text-zinc-500">
                   Location
                 </span>
                 <input
@@ -137,38 +135,6 @@ export default function InquirePage() {
                   className="w-full border border-white/10 bg-[#0d0d10] px-4 py-3 text-white outline-none transition focus:border-amber-500/60"
                   placeholder="Kitchener, Toronto..."
                 />
-              </label>
-
-              <label className="block text-sm text-zinc-300 md:col-span-1">
-                <span className="mb-2 block text-[10px] uppercase tracking-[.3em] text-zinc-500">
-                  Approximate duration
-                </span>
-                <input
-                  type="text"
-                  name="duration"
-                  value={formData.duration}
-                  onChange={handleChange}
-                  className="w-full border border-white/10 bg-[#0d0d10] px-4 py-3 text-white outline-none transition focus:border-amber-500/60"
-                  placeholder="30–60 min"
-                />
-              </label>
-
-              <label className="block text-sm text-zinc-300 md:col-span-1">
-                <span className="mb-2 block text-[10px] uppercase tracking-[.3em] text-zinc-500">
-                  Budget range
-                </span>
-                <select
-                  name="budgetRange"
-                  value={formData.budgetRange}
-                  onChange={handleChange}
-                  className="w-full border border-white/10 bg-[#0d0d10] px-4 py-3 text-white outline-none transition focus:border-amber-500/60"
-                >
-                  <option value="">Optional</option>
-                  <option value="Under $500">Under $500</option>
-                  <option value="$500–$1,000">$500–$1,000</option>
-                  <option value="$1,000–$2,500">$1,000–$2,500</option>
-                  <option value="$2,500+">$2,500+</option>
-                </select>
               </label>
             </div>
 
@@ -202,39 +168,27 @@ export default function InquirePage() {
 
             {isSubmitted && (
               <div className="rounded-sm border border-emerald-500/30 bg-emerald-500/5 p-4 text-sm text-emerald-100">
-                Thanks — your inquiry is ready to be connected to the contact
-                flow. For a low-maintenance setup, connect this form to
-                Formspree, Resend, EmailJS, or a simple serverless endpoint
-                later.
+                Thanks. Your inquiry has been sent successfully.
+              </div>
+            )}
+
+            {errorMessage && (
+              <div className="rounded-sm border border-red-500/30 bg-red-500/5 p-4 text-sm text-red-100">
+                {errorMessage}
               </div>
             )}
           </form>
 
-          <aside className="space-y-6">
-            <div className="border border-white/8 bg-[#0d0d10] p-6">
-              <p className="text-[10px] uppercase tracking-[.35em] text-zinc-500">
-                Working with Saturday Studio
-              </p>
-              <ul className="mt-5 space-y-4 text-sm text-zinc-300">
-                <li>
-                  • Product launches, campaign work, and brand storytelling
-                </li>
-                <li>• Portraits, couples, and personal brand content</li>
-                <li>• Kitchener-Waterloo and Toronto-area bookings</li>
-              </ul>
-            </div>
-
-            <div className="border border-white/8 bg-white/[0.02] p-6">
-              <p className="text-[10px] uppercase tracking-[.35em] text-zinc-500">
-                Quick contact
-              </p>
-              <a
-                href="mailto:saturdaystudio.visuals@gmail.com"
-                className="mt-5 block text-sm font-serif italic text-amber-200/80 hover:text-amber-100"
-              >
-                saturdaystudio.visuals@gmail.com
-              </a>
-            </div>
+          <aside className="border border-white/8 bg-white/[0.02] p-6">
+            <p className="text-[10px] uppercase tracking-[.35em] text-zinc-500">
+              Quick contact
+            </p>
+            <a
+              href="mailto:saturdaystudio.visuals@gmail.com"
+              className="mt-5 block text-sm font-serif italic text-amber-200/80 hover:text-amber-100"
+            >
+              saturdaystudio.visuals@gmail.com
+            </a>
           </aside>
         </div>
       </div>

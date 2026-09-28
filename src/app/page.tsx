@@ -20,26 +20,36 @@ const services = [
 
 const packages = [
   {
-    name: "Mini Session",
-    detail: "30–45 min · 10 edited images",
-    note: "Ideal for product refreshes, profile updates, or a quick content set.",
+    name: "Essential",
+    price: "$75",
+    note: "A simple product package for a few strong images.",
+    features: ["1 product", "3 final edits", "1 setup", "5–7 day turnaround"],
+    accent: "amber",
   },
   {
-    name: "Signature Session",
-    detail: "60–90 min · 25+ edited images",
-    note: "A fuller editorial experience for launches, campaigns, and personal work.",
+    name: "Launch",
+    price: "$175",
+    note: "A fuller package for a new product or small line.",
+    features: [
+      "Up to 3 products",
+      "9 final edits",
+      "Up to 3 images per product",
+      "5–7 day turnaround",
+    ],
+    accent: "rose",
   },
   {
-    name: "Brand / Product",
-    detail: "Custom quote based on project requirements",
-    note: "For multi-shot commercial work, product storytelling, or ongoing creative support.",
+    name: "Collection",
+    price: "$325",
+    note: "A larger content package for ongoing product work.",
+    features: [
+      "Up to 6 products",
+      "18 final edits",
+      "Multiple compositions",
+      "5–7 day turnaround",
+    ],
+    accent: "cyan",
   },
-];
-
-const process = [
-  "Share your goals, timeline, and location.",
-  "The concept, mood, and deliverables are aligned before the session.",
-  "Polished imagery arrives with a straightforward booking path.",
 ];
 
 const chapters = [
@@ -71,9 +81,9 @@ const chapters = [
     image:
       "https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/IMG_9244.jpg",
     tone: "slate",
-    textClass: "text-zinc-900",
-    labelClass: "text-zinc-700",
-    overlayClass: "bg-white/25",
+    textClass: "text-zinc-950",
+    labelClass: "text-zinc-800",
+    overlayClass: "bg-white/20",
   },
   {
     title: "Table Studies",
@@ -223,13 +233,13 @@ export default function Home() {
                     className={`mt-6 text-sm leading-relaxed max-w-xs ${chapter.textClass}`}
                   >
                     {chapter.title === "Thematic Environments" &&
-                      "Narrative-driven product imagery designed to feel elevated, intentional and alive."}
+                      "Clean product imagery with atmosphere, depth, and a strong visual story."}
                     {chapter.title === "Nocturnal Aesthetics" &&
-                      "High-contrast visuals built around texture, mood, and confident negative space."}
+                      "Moody product photography using light, shadow, and contrast to make forms stand out."}
                     {chapter.title === "White Form" &&
-                      "Minimal product studies shaped by light, form and a crisp white backdrop."}
+                      "Minimal product shots for clean ecommerce, catalog, and brand visuals."}
                     {chapter.title === "Table Studies" &&
-                      "Food imagery with warmth, depth and appetite appeal for brands, menus and campaigns."}
+                      "Food photography for menus, campaigns, and content that feels warm and appetizing."}
                   </p>
                   <div className="mt-10 h-[1px] w-0 bg-amber-500/40 group-hover:w-full transition-all duration-700" />
                   <div
@@ -277,7 +287,7 @@ export default function Home() {
               Packages
             </p>
             <h2 className="mt-4 text-3xl md:text-5xl font-serif text-white">
-              Simple options, clear next steps.
+              Choose your package.
             </h2>
           </div>
 
@@ -285,17 +295,37 @@ export default function Home() {
             {packages.map((pkg) => (
               <article
                 key={pkg.name}
-                className="border border-white/8 bg-[#0d0d10] p-6 md:p-7 flex h-full flex-col"
+                className={`border p-6 md:p-7 flex h-full flex-col ${
+                  pkg.accent === "amber"
+                    ? "border-amber-500/20 bg-[#14120f]"
+                    : pkg.accent === "rose"
+                      ? "border-rose-500/20 bg-[#140d0f]"
+                      : "border-cyan-500/20 bg-[#0d1117]"
+                }`}
               >
-                <p className="text-[10px] uppercase tracking-[.35em] text-zinc-500">
-                  {pkg.name}
-                </p>
-                <h3 className="mt-5 text-2xl font-serif text-white">
-                  {pkg.detail}
-                </h3>
-                <p className="mt-5 text-sm text-zinc-400 leading-relaxed">
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <p className="text-[10px] uppercase tracking-[.35em] text-zinc-400">
+                    {pkg.name}
+                  </p>
+                  <span className="text-[10px] uppercase tracking-[.3em] text-amber-200/80">
+                    {pkg.price}
+                  </span>
+                </div>
+
+                <h3 className="text-3xl font-serif text-white">{pkg.price}</h3>
+
+                <p className="mt-4 text-sm text-zinc-300 leading-relaxed">
                   {pkg.note}
                 </p>
+
+                <ul className="mt-6 space-y-2 text-sm text-zinc-300">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex gap-2 leading-relaxed">
+                      <span className="mt-1 text-amber-300">•</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>

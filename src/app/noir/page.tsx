@@ -56,6 +56,24 @@ const studies = [
       "https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/Gryninc-13.jpg",
     align: "right",
   },
+  {
+    label: "Studio Concept 07",
+    title: "Soft Light Study",
+    description:
+      "A cleaner monochrome approach with soft edge contrast and a grounded lighting sculpt. The subject remains clear and premium without losing the low-key mood.",
+    image:
+      "https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag%20%281%29.jpg",
+    align: "left",
+  },
+  {
+    label: "Studio Concept 08",
+    title: "Quiet Volume",
+    description:
+      "A minimalist framing exercise focused on shape, balance and the quiet drama of a shadowed form in a refined studio space.",
+    image:
+      "https://qllrjgjfx9hjelru.public.blob.vercel-storage.com/bag%20%282%29.jpg",
+    align: "right",
+  },
 ];
 
 export default function NocturnalPage() {
